@@ -1,0 +1,82 @@
+\documentclass{article}
+% \documentclass{amsart}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{biblatex}
+\usepackage{blindtext}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{xcolor}
+
+\addbibresource{bibliography.bib}
+\emergencystretch=1em %For the bibliography warning
+
+% TODO:Change size appropriately
+\geometry{a4paper, total={7in, 9.1in}} 
+
+\begin{document}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand\tbf[1]{\textbf{#1}}
+\newcommand\myworries[1]{\textcolor{red}{\tbf{#1}}}
+% \renewcommand\myworries[1]{}
+
+\title{Part B title}
+\author{Fernando Herrera}
+\date{\today}
+\maketitle
+
+\begin{multicols}{2}
+\section{Introduction}
+TODO \cite{thompson12}
+\section{Core idea}
+The goal of this section is to exemplify the technique used to obtain the electromagnetic cloak in a simpler setting.
+To this end we will use the Helmholtz equation:
+\begin{equation}
+	\label{helmholtz}
+	(\Delta + k^2)f=(\partial_x^2+\partial_y^2 + k^2)f=0
+\end{equation}
+
+And the change of coordinates
+\begin{equation}
+\begin{split}
+	u=3x\\
+	v=3y
+\end{split}
+\end{equation}
+So we can think of this as a stretching of the space by a factor of 3.
+
+How does equation \eqref{helmholtz} look like on the \(u,v\) coordinates?
+
+Using the chain rule we have
+\begin{equation}
+\begin{split}
+	\partial_x=\frac{du}{dx}\partial_u=3\partial_u\\
+	\partial_y=\frac{du}{dy}\partial_v=3\partial_v
+\end{split}
+\end{equation}
+so
+\begin{equation}
+\begin{split}
+	\partial_x^2=\frac{du}{dx}\partial_u=9\partial_u^2\\
+	\partial_y^2=\frac{du}{dy}\partial_v=9\partial_v^2
+\end{split}
+\end{equation}
+Replacing this in \eqref{helmholtz} we get:
+\begin{equation}
+(9\partial_u^2+9\partial_v^2 +k^2)f=0\\
+\end{equation}
+and dividing by 9 the equation becomes:
+\begin{equation}
+(\partial_u^2+\partial_v^2 +(k/3)^2)f=0,
+\end{equation}
+which is exactly \eqref{helmholtz} with \(k\) replaced by \(k/3\).
+This means that solving \eqref{helmholtz} with \(k/3\) is equivalent to
+stretching the space by a factor of 3.
+
+\end{multicols}
+\printbibliography
+
+\end{document}
