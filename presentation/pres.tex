@@ -1,0 +1,235 @@
+%! TeX program = lualatex
+\documentclass{beamer}
+\usepackage{emoji}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\input{commands.tex}
+\newcommand{\highlightcyan}[1]{\colorbox{cyan}{$\displaystyle #1$}}
+\newcommand{\highlightyellow}[1]{\colorbox{yellow}{$\displaystyle #1$}}
+
+\title{Fundamentals of Transformation Optics}
+\author{Fernando Herrera}
+\institute{Part B}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{What is cloaking?}
+\huge
+\emoji{sun}\makebox[8cm]{\emoji{face-in-clouds}}\emoji{eyes}
+\newline
+\newline
+\newline
+\emoji{sun}\makebox[8cm]{}\emoji{eyes}
+\end{frame}
+
+\begin{frame}
+\frametitle{How can we bend light?}
+\includegraphics[width=\textwidth]{refraction}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why does light bend?}
+\begin{figure}[!tbp]
+  \centering
+  \begin{minipage}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{man-fishing}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.48\textwidth}
+    \includegraphics[width=\textwidth]{man-fishing2}
+  \end{minipage}
+\end{figure}
+\let\thefootnote\relax\footnote{Pictures taken from mammothmemory.net}
+\end{frame}
+
+\begin{frame}
+\frametitle{Geometry and medium composition}
+\includegraphics[width=\textwidth]{fish}
+\let\thefootnote\relax\footnote{Picture taken from mammothmemory.net}
+\end{frame}
+
+\begin{frame}
+\frametitle{The main idea}
+Consider the Helmholtz equation in $\mathbb{R}^2$
+\begin{equation*}
+	\highlightcyan{\left(\partial^2_x+\partial^2_y+k^2\right)f=0,}
+\end{equation*}
+and the change of coordinates \(u=3x,v=3y\).
+\newline
+\newline
+\pause
+What form does the Helmholtz equation take in the new coordinates \(u,v\)?
+\pause
+\begin{equation*}
+\partial_x=\frac{du}{dx}\cdot\partial_u=3\partial_u\quad
+\partial_y=\frac{dv}{dy}\cdot\partial_v=3\partial_v
+\end{equation*}
+\pause
+Then the equation becomes:
+\begin{equation*}
+	\left(3^2\partial^2_u+3^2\partial^2_v+k^2\right)f=0
+\end{equation*}
+\begin{equation*}
+	\highlightcyan{\left(\partial^2_u+\partial^2_v+(k/3)^2\right)f=0}
+\end{equation*}
+\begin{equation*}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Less trivial example}
+Consider the Helmholtz equation in $\mathbb{R}^2$
+\begin{equation*}
+	\highlightcyan{\left(\partial^2_x+\partial^2_y+k^2\right)f=0,}
+\end{equation*}
+and the change of coordinates \(u=\frac{x}{x^2+y^2}, v=\frac{y}{x^2+y^2}\).
+\newline
+\newline
+\pause
+What form does the Helmholtz equation take in the new coordinates \(u,v\)?
+\pause
+\begin{equation*}
+	\partial_x=\dd{u}{x}\partial_u + \dd{v}{x}\partial_v \qquad
+	\partial_y=\dd{u}{y}\partial_u + \dd{v}{y}\partial_v,
+\end{equation*}
+\pause
+After some algebra the equation becomes:
+\begin{equation*}
+\left(
+\left(\left(\dd{u}{x}\right)^2
++\left(\dd{u}{y}\right)^2\right)
+\left(\partial_u^2+\partial_v^2\right)+ k^2\right)f=0
+\end{equation*}
+\begin{equation*}
+\highlightcyan{\left(
+	\partial_u^2+\partial_v^2
+	+\left(
+	k\middle/\sqrt{\left(\dd{u}{x}\right)^2
+	+\left(\dd{u}{y}\right)^2}
+	\right)^2
+\right)f=0}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Less trivial example}
+Substituting
+\begin{equation*}\label{partialu}
+	\dd{u}{x}=\frac{y^2-x^2}{(x^2+y^2)^2} \qquad
+	\dd{u}{y}=-\frac{2xy}{(x^2+y^2)^2},
+\end{equation*}
+in the equation
+\begin{equation*}
+\left(
+	\partial_u^2+\partial_v^2
+	+\left(
+	k\middle/\sqrt{\left(\dd{u}{x}\right)^2
+	+\left(\dd{u}{y}\right)^2}
+	\right)^2
+\right)f=0,
+\end{equation*}
+and doing some more algebra we get:
+\begin{equation*}
+\highlightcyan{\left(
+	\partial_u^2
+	+\partial_v^2
+	+\left(k\left(x^2+y^2\right)\right)^2
+\right)f=0}
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+\frametitle{A non-example}
+Not all transformations can be achieved by modifying \(k\).
+
+Consider for example \( u=2x,v=3y\).
+\pause
+
+In this case:
+\begin{equation*}
+	\partial_x=2\partial_u \qquad
+	\partial_y=3\partial_v,
+\end{equation*}
+\pause
+and replacing in the original Helmholtz equation:
+\begin{equation*}
+\highlightcyan{\left(\partial^2_x+\partial^2_y+k^2\right)f=0,}
+\end{equation*}
+\pause
+
+we get:
+\begin{equation*}
+	\highlightyellow{(4\partial_u^2 + 9\partial_v^2 + k^2)f=0,}
+\end{equation*}
+\pause
+so we can not rewrite this equation to have the same form as the original
+Helmholtz equation.
+\end{frame}
+
+\begin{frame}
+\frametitle{In summary}
+\begin{itemize}
+\item We can encode some simple geometric transformations.
+\item There are simple geometric transformations we can not encode.
+\item We can encode some complicated (at least non-trivial) geometric transformations.
+\item There are complicated geometric transformations we can not encode.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Maxwell's equations}
+\begin{align*}
+\nabla \cdot E &= \frac{\rho}{\varepsilon_0}\\
+\nabla \cdot B &= 0\\
+\nabla \times E &= -\frac{\partial B}{\partial t}\\
+\nabla \times B &= \frac{1}{c^2}\cdot\frac{\partial E}{\partial t} + \mu_0 J
+\end{align*}
+\pause
+In a vacuum we have \(\varepsilon_0E=D\) and \(B=\mu_0H\), which leads to:
+\pause
+\begin{align*}
+\nabla \cdot D &= \rho\\
+\nabla \cdot B &= 0\\
+\nabla \times E &= -\frac{\partial B}{\partial t}\\
+\nabla \times H &= \frac{\partial D}{\partial t} + J
+\end{align*}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\(A \Gamma E \Omega M E T P H T O \Sigma\)
+		\(M H \Delta E I \Sigma\)
+		\(EI \Sigma I T \Omega\)
+}
+\centering
+\includegraphics[height=0.8\textheight]{plato}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\(A \Gamma E \Omega M E T P H T O \Sigma\)
+		\(M H \Delta E I \Sigma\)
+		\(EI \Sigma I T \Omega\) }
+``For, the door to advanced electromagnetics appears to carry the same
+inscription as the door of Plato's Academy at Athens"
+
+\flushright{-Leonhardt and Philbin}
+\end{frame}
+
+\begin{frame}
+\frametitle{\(A \Gamma E \Omega M E T P H T O \Sigma\)
+	\(M H \Delta E I \Sigma\)
+        \(EI \Sigma I T \Omega\)}
+\centering
+\includegraphics[height=0.8\textheight]{door}
+\end{frame}
+
+\begin{frame}
+\frametitle{Who needs differential geometry?}
+\centering
+\includegraphics[height=0.8\textheight]{computation}
+\end{frame}
+
+\end{document}
