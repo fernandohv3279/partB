@@ -8,6 +8,7 @@
 \usepackage{tikz}
 \usetikzlibrary{angles,quotes,calc}
 \input{commands.tex}
+\graphicspath{{./pictures/}}
 \newcommand{\highlightcyan}[1]{\colorbox{cyan}{$\displaystyle #1$}}
 \newcommand{\highlightyellow}[1]{\colorbox{yellow}{$\displaystyle #1$}}
 
@@ -21,7 +22,30 @@
 \frame{\titlepage}
 
 \begin{frame}
-	\frametitle{Goals}
+\frametitle{Goals}
+\begin{itemize}
+\item Learn about cloaking (transformation optics)
+\pause
+\item Understand formula for cylindrical cloak
+\begin{equation*}
+\boldsymbol{\varepsilon}
+=\boldsymbol{\mu}=
+\begin{bmatrix}
+\frac{r-a}{r} & 0 & 0\\
+0 & \frac{r}{r-a} & 0\\
+0 & 0 & \left(\frac{b}{b-a}\right)^2 \frac{r-a}{r}
+\end{bmatrix}
+\end{equation*}
+\begin{center}
+\includegraphics[height=0.2\textwidth]{cylindricalcloak}
+\end{center}
+\pause
+\item Develop physical intuition
+\pause
+\item Understand the main idea(s)
+\pause
+\item Find simple examples of this idea in action
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -208,7 +232,7 @@ In a vacuum we have \(\varepsilon_0E=D\) and \(B=\mu_0H\), also
 \begin{frame}
 \frametitle{An awesome fact}
 \centering
-\includegraphics[height=0.5\textwidth]{einstein}
+\includegraphics[height=0.4\textwidth]{einstein}
 
 We can encode ``any" coordinate change in Maxwell's equations.
 \end{frame}
@@ -221,20 +245,20 @@ We can encode ``any" coordinate change in Maxwell's equations.
 $\vcenter{\hbox{$\begin{cases}
 	r= \frac{b-a}{b} r' + a\\
 	\theta = \theta'\\
-	\phi = \phi'\\
+	z=z'
 \end{cases}$}}$
 \hspace{2cm}
-$\vcenter{\hbox{\includegraphics[height=0.2\textwidth]{spherecloak}}}$
+$\vcenter{\hbox{\includegraphics[height=0.2\textwidth]{cylindricalcloak}}}$
 
 \vspace{0.5cm}
 \pause
 $\vcenter{\hbox{$\begin{cases}
 	r= \frac{b-a}{b} r' + a\\
 	\theta = \theta'\\
-	z=z'
+	\phi = \phi'\\
 \end{cases}$}}$
 \hspace{2cm}
-$\vcenter{\hbox{\includegraphics[height=0.2\textwidth]{cylindricalcloak}}}$
+$\vcenter{\hbox{\includegraphics[height=0.2\textwidth]{spherecloak}}}$
 
 \end{center}
 
@@ -301,7 +325,7 @@ inscription as the door of Plato's Academy at Athens"
 \end{equation*}
 \pause
 \begin{equation*}
-\nabla_{r,\theta}\cdot V = \partial_r V^r +\partial_\theta V^\theta \qquad\;\;\;\;\;\; \pause \text{\emoji{neutral-face}}
+\nabla_{r,\theta}\cdot V = \partial_r V^r +\partial_\theta V^\theta \qquad\;\;\;\;\;\; \text{\emoji{neutral-face}}
 \end{equation*}
 \pause
 \begin{equation*}
