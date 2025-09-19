@@ -2,7 +2,11 @@
 \documentclass{beamer}
 \usepackage{emoji}
 \usepackage{graphicx}
+\usepackage{framed}
 \usepackage{xcolor}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc}
 \input{commands.tex}
 \newcommand{\highlightcyan}[1]{\colorbox{cyan}{$\displaystyle #1$}}
 \newcommand{\highlightyellow}[1]{\colorbox{yellow}{$\displaystyle #1$}}
@@ -17,6 +21,10 @@
 \frame{\titlepage}
 
 \begin{frame}
+	\frametitle{Goals}
+\end{frame}
+
+\begin{frame}
 \frametitle{What is cloaking?}
 \huge
 \emoji{sun}\makebox[8cm]{\emoji{face-in-clouds}}\emoji{eyes}
@@ -28,28 +36,20 @@
 
 \begin{frame}
 \frametitle{How can we bend light?}
-\includegraphics[width=\textwidth]{refraction}
+\centering
+\includegraphics[width=0.8\textwidth]{refraction}
 \end{frame}
 
 \begin{frame}
 \frametitle{Why does light bend?}
-\begin{figure}[!tbp]
-  \centering
-  \begin{minipage}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth]{man-fishing}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.48\textwidth}
-    \includegraphics[width=\textwidth]{man-fishing2}
-  \end{minipage}
-\end{figure}
-\let\thefootnote\relax\footnote{Pictures taken from mammothmemory.net}
+\centering
+\input{pictures/snell.tex}
 \end{frame}
 
 \begin{frame}
 \frametitle{Geometry and medium composition}
-\includegraphics[width=\textwidth]{fish}
-\let\thefootnote\relax\footnote{Picture taken from mammothmemory.net}
+\centering
+\input{pictures/fermat.tex}
 \end{frame}
 
 \begin{frame}
@@ -178,6 +178,11 @@ Helmholtz equation.
 \item We can encode some complicated (at least non-trivial) geometric transformations.
 \item There are complicated geometric transformations we can not encode.
 \end{itemize}
+\pause
+\begin{framed}
+\centering
+Coordinate transformation $\iff$ medium composition
+\end{framed}
 \end{frame}
 
 \begin{frame}
@@ -189,7 +194,8 @@ Helmholtz equation.
 \nabla \times B &= \frac{1}{c^2}\cdot\frac{\partial E}{\partial t} + \mu_0 J
 \end{align*}
 \pause
-In a vacuum we have \(\varepsilon_0E=D\) and \(B=\mu_0H\), which leads to:
+In a vacuum we have \(\varepsilon_0E=D\) and \(B=\mu_0H\), also
+\(\mu_0\varepsilon_0=\frac{1}{c^2}\) which leads to:
 \pause
 \begin{align*}
 \nabla \cdot D &= \rho\\
@@ -200,18 +206,80 @@ In a vacuum we have \(\varepsilon_0E=D\) and \(B=\mu_0H\), which leads to:
 \end{frame}
 
 \begin{frame}
-	\frametitle{\(A \Gamma E \Omega M E T P H T O \Sigma\)
-		\(M H \Delta E I \Sigma\)
-		\(EI \Sigma I T \Omega\)
-}
+\frametitle{An awesome fact}
+\centering
+\includegraphics[height=0.5\textwidth]{einstein}
+
+We can encode ``any" coordinate change in Maxwell's equations.
+\end{frame}
+
+\begin{frame}
+\frametitle{The transformation(s)}
+
+\begin{center}
+
+$\vcenter{\hbox{$\begin{cases}
+	r= \frac{b-a}{b} r' + a\\
+	\theta = \theta'\\
+	\phi = \phi'\\
+\end{cases}$}}$
+\hspace{2cm}
+$\vcenter{\hbox{\includegraphics[height=0.2\textwidth]{spherecloak}}}$
+
+\vspace{0.5cm}
+\pause
+$\vcenter{\hbox{$\begin{cases}
+	r= \frac{b-a}{b} r' + a\\
+	\theta = \theta'\\
+	z=z'
+\end{cases}$}}$
+\hspace{2cm}
+$\vcenter{\hbox{\includegraphics[height=0.2\textwidth]{cylindricalcloak}}}$
+
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Brute force approch}
+\centering
+\includegraphics[height=0.8\textheight]{computation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Transformation optics}
+\begin{equation*}
+\boldsymbol{\varepsilon}=\boldsymbol{\mu}=\frac{\sqrt{g'}}{\sqrt{\gamma}}\frac{\Lambda
+\left(\boldsymbol{g}'\right)^{-1}\Lambda^T}{\det\Lambda}
+\end{equation*}
+
+\pause
+Pros:
+\begin{itemize}
+	\item More elegant
+	\item We can test more transformations
+	\item Simpler computations
+\end{itemize}
+\pause
+Cons:
+\begin{itemize}
+	\item Differential geometry
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{\(A \Gamma E \Omega M E T P H T O \Sigma\)
+	\(M H \Delta E I \Sigma\)
+	\(EI \Sigma I T \Omega\)}
 \centering
 \includegraphics[height=0.8\textheight]{plato}
 \end{frame}
 
 \begin{frame}
-	\frametitle{\(A \Gamma E \Omega M E T P H T O \Sigma\)
-		\(M H \Delta E I \Sigma\)
-		\(EI \Sigma I T \Omega\) }
+\frametitle{\(A \Gamma E \Omega M E T P H T O \Sigma\)
+	\(M H \Delta E I \Sigma\)
+	\(EI \Sigma I T \Omega\)}
 ``For, the door to advanced electromagnetics appears to carry the same
 inscription as the door of Plato's Academy at Athens"
 
@@ -227,9 +295,33 @@ inscription as the door of Plato's Academy at Athens"
 \end{frame}
 
 \begin{frame}
-\frametitle{Who needs differential geometry?}
-\centering
-\includegraphics[height=0.8\textheight]{computation}
+\frametitle{Divergence}
+\begin{equation*}
+\nabla_{x,y}\cdot V = \partial_x V^x +\partial_y V^y \qquad\;\;\;\;\; \text{\emoji{slightly-smiling-face}}
+\end{equation*}
+\pause
+\begin{equation*}
+\nabla_{r,\theta}\cdot V = \partial_r V^r +\partial_\theta V^\theta \qquad\;\;\;\;\;\; \pause \text{\emoji{neutral-face}}
+\end{equation*}
+\pause
+\begin{equation*}
+	\nabla_{r,\theta}\cdot V = \frac{1}{r}\partial_r\left(rV^r\right) +\frac{1}{r}\partial_\theta V^\theta \quad \text{\emoji{slightly-smiling-face}}
+\end{equation*}
+\pause
+\begin{equation*}
+\nabla\cdot V = \frac{1}{\sqrt{g}}\partial_i\left(\sqrt{g}V^i\right) \qquad\quad\;\;\;\; \text{\emoji{star-struck}}
+\end{equation*}
+
+Here g is the determinant of the metric tensor.
 \end{frame}
+
+% \begin{frame}
+% \frametitle{Curl}
+% \begin{equation*}
+% \nabla_{x,y}\times V = \partial_x V^x +\partial_y V^y \qquad\;\;\;\;\; \text{\emoji{slightly-smiling-face}}
+% \end{equation*}
+% \end{frame}
+
+\begin{frame}\end{frame}
 
 \end{document}
