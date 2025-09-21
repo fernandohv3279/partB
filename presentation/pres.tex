@@ -2,6 +2,7 @@
 \documentclass{beamer}
 \usepackage{emoji}
 \usepackage{graphicx}
+\usepackage{multicol}
 \usepackage{framed}
 \usepackage{xcolor}
 \usepackage{array}
@@ -25,7 +26,6 @@
 \frametitle{Goals}
 \begin{itemize}
 \item Learn about cloaking (transformation optics)
-\pause
 \item Understand formula for cylindrical cloak
 \begin{equation*}
 \boldsymbol{\varepsilon}
@@ -39,11 +39,8 @@
 \begin{center}
 \includegraphics[height=0.2\textwidth]{cylindricalcloak}
 \end{center}
-\pause
 \item Develop physical intuition
-\pause
 \item Understand the main idea(s)
-\pause
 \item Find simple examples of this idea in action
 \end{itemize}
 \end{frame}
@@ -212,20 +209,20 @@ Coordinate transformation $\iff$ medium composition
 \begin{frame}
 \frametitle{Maxwell's equations}
 \begin{align*}
-\nabla \cdot E &= \frac{\rho}{\varepsilon_0}\\
-\nabla \cdot B &= 0\\
-\nabla \times E &= -\frac{\partial B}{\partial t}\\
-\nabla \times B &= \frac{1}{c^2}\cdot\frac{\partial E}{\partial t} + \mu_0 J
+\nabla \cdot \boldsymbol{E} &= \frac{\rho}{\varepsilon_0}\\
+\nabla \cdot \boldsymbol{B} &= 0\\
+\nabla \times \boldsymbol{E} &= -\frac{\partial \boldsymbol{B}}{\partial t}\\
+\nabla \times \boldsymbol{B} &= \frac{1}{c^2}\cdot\frac{\partial \boldsymbol{E}}{\partial t} + \mu_0 \boldsymbol{J}
 \end{align*}
 \pause
-In a vacuum we have \(\varepsilon_0E=D\) and \(B=\mu_0H\), also
+In a vacuum we have \(\varepsilon_0\boldsymbol{E}=\boldsymbol{D}\) and \(\boldsymbol{B}=\mu_0\boldsymbol{H}\), also
 \(\mu_0\varepsilon_0=\frac{1}{c^2}\) which leads to:
 \pause
 \begin{align*}
-\nabla \cdot D &= \rho\\
-\nabla \cdot B &= 0\\
-\nabla \times E &= -\frac{\partial B}{\partial t}\\
-\nabla \times H &= \frac{\partial D}{\partial t} + J
+\nabla \cdot \boldsymbol{D} &= \rho\\
+\nabla \cdot \boldsymbol{B} &= 0\\
+\nabla \times \boldsymbol{E} &= -\frac{\partial \boldsymbol{B}}{\partial t}\\
+\nabla \times \boldsymbol{H} &=  \frac{\partial \boldsymbol{D}}{\partial t} + \boldsymbol{J}
 \end{align*}
 \end{frame}
 
@@ -273,8 +270,9 @@ $\vcenter{\hbox{\includegraphics[height=0.2\textwidth]{spherecloak}}}$
 \begin{frame}
 \frametitle{Transformation optics}
 \begin{equation*}
-\boldsymbol{\varepsilon}=\boldsymbol{\mu}=\frac{\sqrt{g'}}{\sqrt{\gamma}}\frac{\Lambda
-\left(\boldsymbol{g}'\right)^{-1}\Lambda^T}{\det\Lambda}
+\boldsymbol{\varepsilon}=\boldsymbol{\mu}=
+\frac{\sqrt{g'}}{\sqrt{\gamma}}\frac{\boldsymbol{\Lambda}
+\left(\boldsymbol{g}'\right)^{-1}\boldsymbol{\Lambda}^T}{\det\boldsymbol{\Lambda}}
 \end{equation*}
 
 \pause
@@ -321,30 +319,133 @@ inscription as the door of Plato's Academy at Athens"
 \begin{frame}
 \frametitle{Divergence}
 \begin{equation*}
-\nabla_{x,y}\cdot V = \partial_x V^x +\partial_y V^y \qquad\;\;\;\;\; \text{\emoji{slightly-smiling-face}}
+\nabla_{x,y}\cdot \boldsymbol{V} = \partial_x V^x +\partial_y V^y \qquad\;\;\;\;\; \text{\emoji{slightly-smiling-face}}
 \end{equation*}
 \pause
 \begin{equation*}
-\nabla_{r,\theta}\cdot V = \partial_r V^r +\partial_\theta V^\theta \qquad\;\;\;\;\;\; \text{\emoji{neutral-face}}
+\nabla_{r,\theta}\cdot \boldsymbol{V} = \partial_r V^r +\partial_\theta V^\theta \qquad\;\;\;\;\;\; \text{\emoji{neutral-face}}
 \end{equation*}
 \pause
 \begin{equation*}
-	\nabla_{r,\theta}\cdot V = \frac{1}{r}\partial_r\left(rV^r\right) +\frac{1}{r}\partial_\theta V^\theta \quad \text{\emoji{slightly-smiling-face}}
+	\nabla_{r,\theta}\cdot \boldsymbol{V} = \frac{1}{r}\partial_r\left(rV^r\right) +\frac{1}{r}\partial_\theta V^\theta \quad \text{\emoji{slightly-smiling-face}}
 \end{equation*}
 \pause
+\begin{framed}
 \begin{equation*}
-\nabla\cdot V = \frac{1}{\sqrt{g}}\partial_i\left(\sqrt{g}V^i\right) \qquad\quad\;\;\;\; \text{\emoji{star-struck}}
+\nabla\cdot \boldsymbol{V} = \frac{1}{\sqrt{g}}\partial_i\left(\sqrt{g}V^i\right) \qquad\quad\;\;\;\; \text{\emoji{star-struck}}
 \end{equation*}
+\end{framed}
 
-Here g is the determinant of the metric tensor.
+Here $g$ is the determinant of the metric tensor.
 \end{frame}
 
-% \begin{frame}
-% \frametitle{Curl}
-% \begin{equation*}
-% \nabla_{x,y}\times V = \partial_x V^x +\partial_y V^y \qquad\;\;\;\;\; \text{\emoji{slightly-smiling-face}}
-% \end{equation*}
-% \end{frame}
+\begin{frame}
+\frametitle{Curl}
+\begin{align*}
+	\nabla_{x,y}\times \boldsymbol{V}
+	&=\left(\partial_y V^z -\partial_z V^y \right)\boldsymbol{\hat{\imath}}
+	&\\
+	&+\left(\partial_z V^x -\partial_x V^z \right)\boldsymbol{\hat{\jmath}}
+	&\text{\emoji{slightly-smiling-face}}\\
+	&+\left(\partial_x V^y -\partial_y V^x \right)\boldsymbol{\hat{k}} &
+\end{align*}
+\begin{framed}
+\begin{equation*}
+\left(\nabla\times \boldsymbol{V}\right)^i =\epsilon^{ijk}\partial_jV_k
+\qquad
+\qquad
+\qquad
+\qquad
+\;\;
+\text{\emoji{star-struck}}
+\end{equation*}
+\end{framed}
+
+Here $\epsilon^{ijk}=\pm \frac{1}{\sqrt{g}}[ijk]$ is the Levi-Civita tensor.
+\end{frame}
+
+\begin{frame}
+\frametitle{Does it actually work?}
+\begin{align*}
+	\nabla\cdot \boldsymbol{V} &=
+\frac{1}{\sqrt{g}}\partial_i\left(\sqrt{g}V^i\right)
+				   &\text{\emoji{thinking-face}}\\
+	\nabla_{r,\theta}\cdot \boldsymbol{V} &= \frac{1}{r}\partial_r\left(rV^r\right)
+	+\frac{1}{r}\partial_\theta V^\theta &\text{\emoji{thinking-face}}
+\end{align*}
+\pause
+
+\centering
+
+\emoji{warning} careful with the basis
+\end{frame}
+
+\begin{frame}
+\frametitle{Does it actually work?}
+\begin{align*}
+	\left(\nabla\times \boldsymbol{V}\right)^i
+	&=\epsilon^{ijk}\partial_jV_k
+	&\text{\emoji{thinking-face}}\\
+	\nabla_{r,\varphi,z}\cdot \boldsymbol{V} 
+	&= \left(\frac{1}{r}\partial_\varphi V^z
+	-\partial_z V^\varphi\right)\boldsymbol{\hat{r}}
+	&\text{\emoji{thinking-face}}\\
+	&+\left(\partial_zV^r-\partial_rV^z\right)\boldsymbol{\hat{\varphi}}
+	&\text{\emoji{thinking-face}}\\
+	&+\frac{1}{r}\left(\partial_r\left(rV^\varphi\right)-\partial_\varphi
+	V^r\right)\boldsymbol{\hat{z}}
+	&\text{\emoji{thinking-face}}
+\end{align*}
+\centering
+\emoji{warning} careful with the basis
+
+\pause
+\emoji{warning} careful with lower vs upper indices
+\end{frame}
+
+\begin{frame}
+\frametitle{Lowering and rising indices}
+\begin{align*}
+	V_i&=g_{ij}V^j\\
+	g^{ki}V_i&=V^k
+\end{align*}
+
+Here \(g_{ij}\) is the metric tensor and \(g^{ij}\) is the inverse
+of the metric tensor.
+\end{frame}
+
+\begin{frame}
+\frametitle{Does it actually work?}
+\begin{align*}
+	\left(\nabla\times \boldsymbol{V}\right)^i
+	&=\epsilon^{ijk}\partial_jV_k
+	&\text{\emoji{thinking-face}}\\
+	\nabla_{r,\varphi,z}\cdot \boldsymbol{V} 
+	&= \left(\frac{1}{r}\partial_\varphi V^z
+	-\partial_z V^\varphi\right)\boldsymbol{\hat{r}}
+	&\text{\emoji{thinking-face}}\\
+	&+\left(\partial_zV^r-\partial_rV^z\right)\boldsymbol{\hat{\varphi}}
+	&\text{\emoji{thinking-face}}\\
+	&+\frac{1}{r}\left(\partial_r\left(rV^\varphi\right)-\partial_\varphi
+	V^r\right)\boldsymbol{\hat{z}}
+	&\text{\emoji{thinking-face}}\\
+\end{align*}
+\centering
+\emoji{warning} careful with the basis
+
+\emoji{warning} careful with lower vs upper indices
+\end{frame}
+
+\begin{frame}
+\frametitle{Maxwell's equations in arbitrary coordinates}
+\begin{align*}
+\nabla \cdot \boldsymbol{E} &= \frac{\rho}{\varepsilon_0} &\frac{1}{\sqrt{g}}\partial_i\left(\sqrt{g}\boldsymbol{E}^i\right) &= \frac{\rho}{\varepsilon_0}\\
+\nabla \cdot \boldsymbol{H} &= 0  		             &\frac{1}{\sqrt{g}}\partial_i\left(\sqrt{g}\boldsymbol{H}^i\right) &=0 \\
+\nabla\times \boldsymbol{E} &=-\mu_0\frac{\partial \boldsymbol{H}}{\partial t} &\epsilon^{ijk} \partial_j\boldsymbol{E}_k &= -\mu_0\frac{\partial \boldsymbol{H}^i}{\partial t}\\
+\nabla\times \boldsymbol{H} &=\varepsilon_0\frac{\partial \boldsymbol{E}}{\partial t} + \boldsymbol{J} &\epsilon^{ijk} \partial_j\boldsymbol{H}_k &= \varepsilon_0\frac{\partial \boldsymbol{E}^i}{\partial t} + \boldsymbol{J}^i
+\end{align*}
+
+\end{frame}
 
 \begin{frame}\end{frame}
 
