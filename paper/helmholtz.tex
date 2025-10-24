@@ -1,50 +1,50 @@
 \subsection{Stretching the space}
-Helmholtz equation
+Consider the Helmholtz equation
 \begin{equation}\label{helmholtz}
 	(\Delta +k^2)f=(\partial_x^2+\partial_y^2+k^2)f=0
 \end{equation}
 
-Consider the following change of variables
+Now apply the following change of variables
 \begin{equation*}
 	u=3x \qquad
-	v=3y,
+	v=3y.
 \end{equation*}
-what form does \eqref{helmholtz} take in the \(u,v\) coordinate system?
+What form does \eqref{helmholtz} take in the \(u,v\) coordinate system?
 
-Using the chain rule we get:
+Using the chain rule, we obtain:
 \begin{equation*}
 	\partial_x=\dd{u}{x}\partial_u=3\partial_u \qquad
-	\partial_y=\dd{v}{y}\partial_v=3\partial_v,
+	\partial_y=\dd{v}{y}\partial_v=3\partial_v.
 \end{equation*}
-replacing this in \eqref{helmholtz} we get
+Substituting these expressions into \eqref{helmholtz} yields
 \begin{equation*}
-	(9\partial_u^2+9\partial_v^2+k^2)f=0,
+	(9\partial_u^2+9\partial_v^2+k^2)f=0.
 \end{equation*}
-dividing by 9 we obtain
+Dividing by 9, we obtain
 \begin{equation*}
-	(\partial_u^2+\partial_v^2+(k/3)^2)f=0,
+	(\partial_u^2+\partial_v^2+(k/3)^2)f=0.
 \end{equation*}
-hence it is equivalent to solving the original Helmholtz equation
-\eqref{helmholtz} with \(k\) replaced by \(k/3\). In other words, stretching
-the space by a factor of 3 is equivalent to dividing \(k\) by a factor of 3.
-Here we see that changing the composition of the medium and changing the
-geometry that light perceives is equivalent.
+This result shows that solving the original Helmholtz equation
+\eqref{helmholtz} with \(k\) replaced by \(k/3\) is equivalent to solving the transformed equation. In other words, stretching
+the space by a factor of 3 is equivalent to dividing \(k\) by 3.
+This example demonstrates that modifying the medium's composition and changing the
+geometry that light perceives are equivalent.
 
 \subsection{Inverting with respect to the unit circle}
-The coordinate transformation we will now use is
+We now apply the coordinate transformation
 
 \begin{equation*}
 	u=\frac{x}{x^2+y^2} \qquad
 	v=\frac{y}{x^2+y^2}.
 \end{equation*}
-This is inversion with respect to the unit circle.
+This transformation represents inversion with respect to the unit circle.
 
-Following the same procedure as in the previous example we get
+Following the same procedure as before, we find
 \begin{equation*}
 	\partial_x=\dd{u}{x}\partial_u + \dd{v}{x}\partial_v \qquad
 	\partial_y=\dd{u}{y}\partial_u + \dd{v}{y}\partial_v,
 \end{equation*}
-then
+which gives
 \begin{align*}
 	\partial_x^2=
 	  \left(\dd{u}{x}\right)^2\partial_u^2
@@ -53,15 +53,15 @@ then
 	\partial_y^2=
 	  \left(\dd{u}{y}\right)^2\partial_u^2
 	+ \left(\dd{v}{y}\right)^2\partial_v^2
-	+ 2\dd{u}{y}\dd{v}{y}\partial_u\partial_v
+	+ 2\dd{u}{y}\dd{v}{y}\partial_u\partial_v.
 \end{align*}
-and so
+Thus
 \begin{align*}
 	\Delta &= \partial_x^2+\partial_y^2\\
 	       &= \left(\dd{u}{x}\right)^2\partial_u^2
 	+ \left(\dd{v}{x}\right)^2\partial_v^2
 	+ 2\dd{u}{x}\dd{v}{x}\partial_u\partial_v\\
-	       &+
+	       &\quad +
 	  \left(\dd{u}{y}\right)^2\partial_u^2
 	+ \left(\dd{v}{y}\right)^2\partial_v^2
 	+ 2\dd{u}{y}\dd{v}{y}\partial_u\partial_v\\
@@ -69,19 +69,19 @@ and so
 	+\left(\dd{u}{y}\right)^2\right)\partial_u^2
 	+\left(\left(\dd{v}{x}\right)^2
 	+\left(\dd{v}{y}\right)^2\right)\partial_v^2\\
-	       &+2\left(\dd{u}{x}\dd{v}{x}
-	+\dd{u}{y}\dd{v}{y}\right)\partial_u\partial_v
+	       &\quad +2\left(\dd{u}{x}\dd{v}{x}
+	+\dd{u}{y}\dd{v}{y}\right)\partial_u\partial_v,
 \end{align*}
-i.e.
+that is,
 \begin{multline}\label{laplacianuv}
 	\Delta =\left(\left(\dd{u}{x}\right)^2
 	+\left(\dd{u}{y}\right)^2\right)\partial_u^2
 	       +\left(\left(\dd{v}{x}\right)^2
 	+\left(\dd{v}{y}\right)^2\right)\partial_v^2\\
 	       +2\left(\dd{u}{x}\dd{v}{x}
-	+\dd{u}{y}\dd{v}{y}\right)\partial_u\partial_v
+	+\dd{u}{y}\dd{v}{y}\right)\partial_u\partial_v.
 \end{multline}
-In this case
+For this transformation, we compute
 \begin{equation}\label{partialu}
 	\dd{u}{x}=\frac{y^2-x^2}{(x^2+y^2)^2} \qquad
 	\dd{u}{y}=-\frac{2xy}{(x^2+y^2)^2},
@@ -92,29 +92,29 @@ and
 	\dd{v}{y}=\frac{x^2-y^2}{(x^2+y^2)^2}.
 \end{equation*}
 
-Notice that
+Notice the relationships
 \begin{equation}\label{partialsRelations}
 	\dd{v}{y}=-\dd{u}{x} \qquad
 	\dd{v}{x}=\dd{u}{y}.
 \end{equation}
 
-Using \eqref{partialsRelations} to get rid of the \(v\) variable in \eqref{laplacianuv} we get
+Using \eqref{partialsRelations} to eliminate the \(v\) variable from \eqref{laplacianuv}, we obtain
 \begin{equation}\label{laplacianuvsimplified}
 	\Delta=\left(
 	\left(\dd{u}{x}\right)^2
 	+\left(\dd{u}{y}\right)^2\right)
 	\left(\partial_u^2+\partial_v^2 \right).
 \end{equation}
-Going back to the Helmholtz equation if we want to write it in the \(u,v\)
-coordinates we get
+Expressing the Helmholtz equation in the \(u,v\)
+coordinates yields
 \begin{equation*}
 \left(
 \left(\left(\dd{u}{x}\right)^2
 +\left(\dd{u}{y}\right)^2\right)
-\left(\partial_u^2+\partial_v^2\right)+ k^2\right)f=0
+\left(\partial_u^2+\partial_v^2\right)+ k^2\right)f=0.
 \end{equation*}
-and dividing by \(\left(\dd{u}{x}\right)^2
-+\left(\dd{u}{y}\right)^2\) we obtain:
+Dividing by \(\left(\dd{u}{x}\right)^2
++\left(\dd{u}{y}\right)^2\), we obtain:
 \begin{equation}
 \left(
 	\partial_u^2+\partial_v^2
@@ -122,27 +122,27 @@ and dividing by \(\left(\dd{u}{x}\right)^2
 	k\middle/\sqrt{\left(\dd{u}{x}\right)^2
 	+\left(\dd{u}{y}\right)^2}
 	\right)^2
-\right)f=0,
+\right)f=0.
 \end{equation}
-so once again we can achieve the transformation just by changing the
-parameter \(k\). In this example the parameter we need is a lot more
-complicated than the one in the previous example; however, we can see that it
-still is just a function of space, as it depends only on \(x\) and \(y\) as
-seen in \eqref{partialu}.
-\subsection{A non-example}
-Not all transformations can be achieved by modifying \(k\), for example consider
+Once again, we achieve the transformation by modifying the
+parameter \(k\). In this example, the required parameter is more
+complex than in the previous case; however, it remains a function of space alone, depending only on \(x\) and \(y\) as
+shown in \eqref{partialu}.
+
+\subsection{A counterexample}
+Not all transformations can be realized by modifying \(k\). For example, consider
 \begin{equation*}
 	u=2x \qquad
-	v=3y,
+	v=3y.
 \end{equation*}
 In this case
 \begin{equation*}
 	\partial_x=2\partial_u \qquad
-	\partial_y=3\partial_v
+	\partial_y=3\partial_v,
 \end{equation*}
-and then
+which gives
 \begin{equation*}
-	(4\partial_u^2 + 9\partial_v^2 + k^2)f=0,
+	(4\partial_u^2 + 9\partial_v^2 + k^2)f=0.
 \end{equation*}
-so we can not rewrite this equation to have the same form as the original
+We cannot rewrite this equation to match the form of the original
 Helmholtz equation.
