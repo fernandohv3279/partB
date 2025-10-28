@@ -1,5 +1,11 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{biblatex}
+\usepackage{tikz}
+\usetikzlibrary{angles,quotes,calc}
+\addbibresource{partbrefs.bib}
+
 \input{commands.tex}
 
 \begin{document}
@@ -12,7 +18,7 @@
 \section{Introduction}
 \input{intro.tex}
 \section{Cloaking}\label{cloaking}
-
+\input{cloaking.tex}
 \section{Example with the Helmholtz equation}\label{helmholtzexample}
 \input{helmholtz.tex}
 \subsection{Numerical experiments}\label{numerics}
@@ -21,4 +27,7 @@
 % \input{maxwell.tex}
 \section{Tools from differential geometry}\label{geodiff}
 \section{Cloak formula}\label{cloakformula}
+
+\printbibliography
+
 \end{document}
