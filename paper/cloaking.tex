@@ -1,26 +1,25 @@
 The objective of cloaking is to guide electromagnetic waves around
-a region of space in a way that the resulting wave, when measured
-outside of this region is indistinguishable from a wave that
-propagates through empty space. A famous example of this desired behaviour can
-be seen on figure \ref{cloakImage}.
+a region of space such that the resulting wave, when measured
+outside this region, remains indistinguishable from a wave that
+propagates through empty space. Figure \ref{cloakImage} illustrates this desired behavior.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/cylindricalcloak}
-\caption{Cloaking device. The light bends around the inner circle
-and comes out of the other end in the same way it would if there
-was empty space instead of the cloaking device. Image taken from
+\caption{Cloaking device. Light bends around the inner circle
+and emerges on the other side exactly as it would if the
+cloaking device were replaced by empty space. Image taken from
 \cite{pendryControllingElectromagneticFields2006}.}
 \label{cloakImage}
 \end{figure}
 
-Since we want to bend light, the next question is: How can we do
-so? There are multiple ways to achieve this but perhaps the most familiar
-example would when light changes direction as it moves between two mediums that
-have different refraction indices. This is commonly known as Snell's law; see
-figure \ref{snell}. This is the simplest way of bending light, changing the
-refraction index of the medium. This creates the question: Is it possible to
-tweak the refraction index in a way that light bends in the very specific way
-we want, namely in the way that figure \ref{cloakImage} shows?
+Since we want to bend light, the natural question becomes: How can we
+accomplish this? Multiple approaches exist, but perhaps the most familiar
+example occurs when light changes direction as it moves between two media with
+different refractive indices. We commonly know this phenomenon as Snell's law;
+see Figure \ref{snell}. Changing the refractive index of the medium provides
+the simplest way to bend light. This observation raises a crucial question: Can
+we design a refractive index profile that bends light in the specific way
+shown in Figure \ref{cloakImage}?
 
 \begin{figure}[ht]
 \centering
@@ -31,32 +30,32 @@ we want, namely in the way that figure \ref{cloakImage} shows?
 \label{snell}
 \end{figure}
 
-An equivalent explanation of this phenomenon that is better for our purpose is
-called Fermat's principle. To understand it better we need to first talk about
-the refraction index of a medium; this is defined as the speed of light in that
-medium divided by the speed of light in vacuum. So we can think of it as a
-resistance felt by light. Fermat's principle says that light wants to go from
-point A to point B as fast as possible; see Figure \ref{fermat}. We can recover
-Snell's law from Fermat's principle and vice versa, but there is a nice
-interpretation that we can give to Fermat's principle that will be useful to us
-later. Such interpretation is the following: \textbf{modifying the composition
-of the medium is equivalent to modifying the geometry that light perceives}.
-For light, the relevant ``metric" is time, not distance. Both of these are
-related of course, but in this geometry that light perceives the ``best" path
-to go from A to B is no longer the obvious straight line, which minimizes
-distance; instead is given precisely by Snell's law, which is the path that
-minimizes time.
+Fermat's principle offers an equivalent explanation of this phenomenon that
+better suits our purposes. To understand it, we must first discuss the
+refractive index of a medium. We define the refractive index as the ratio of
+the speed of light in vacuum to the speed of light in that medium. We can
+therefore interpret it as a resistance that light experiences. Fermat's
+principle states that light travels from point A to point B along the path that
+minimizes travel time; see Figure \ref{fermat}. We can derive Snell's law from
+Fermat's principle and vice versa, but Fermat's principle admits a powerful
+interpretation that will prove useful later. This interpretation is the
+following: \textbf{modifying the composition of the medium is equivalent to
+modifying the geometry that light perceives}. For light, the relevant
+``metric'' measures time, not distance. These quantities are related, of
+course, but in the geometry that light perceives, the ``best'' path from A to B
+no longer follows the obvious straight line that minimizes distance. Instead,
+Snell's law gives this optimal path, which minimizes time.
 
 \begin{figure}[ht]
 \centering
 \resizebox{0.5\textwidth}{!}{
 \input{figures/fermat.tex}
 }
-\caption{Fermat's principle. The blue line is the path that minimizes the time
-that it takes light to travel from A to B. The red path on the left is shorter
-but it travels a long distance on medium 2 (high refractive index; i.e. light
-moves slowly) so it is slower. The red path on the
-right minimizes the distance spent on medium 2 but it is too long, so it is
-also slower.}
+\caption{Fermat's principle. The blue line shows the path that minimizes the
+time required for light to travel from A to B. The red path on the left is
+shorter in distance but travels a long way through medium 2 (high refractive
+index, where light moves slowly), making it slower overall. The red path on the
+right minimizes the distance spent in medium 2 but follows a path that is too
+long, also making it slower.}
 \label{fermat}
 \end{figure}
