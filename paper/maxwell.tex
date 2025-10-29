@@ -1,7 +1,46 @@
-\subsection{Form invariance of Maxwell's equations}
-Maxwell's equations are:
+Maxwell's equations govern the behavior of electromagnetic fields and form the
+foundation of classical electromagnetism. These equations describe how electric
+and magnetic fields interact and propagate through space. In their differential
+form, they are
 \begin{align*}
-hola=joola
+\nabla \cdot \boldsymbol{E} &= \frac{\rho}{\varepsilon_0}\\
+\nabla \cdot \boldsymbol{B} &= 0\\
+\nabla \times \boldsymbol{E} &= -\frac{\partial \boldsymbol{B}}{\partial t}\\
+\nabla \times \boldsymbol{B} &=
+\frac{1}{c^2}\cdot\frac{\partial \boldsymbol{E}}{\partial t}
++ \mu_0 \boldsymbol{J},
 \end{align*}
-A remarkable fact about Maxwell's equations is that they are form invariant
-under any change of coordinates.
+
+This form is known as the microscopic form of Maxwell's equations.
+Another form that we will use is called the macroscopic form, this
+one is better suited for working with materials parameters, in the
+case of vacuum, which is what we care about in this paper we have
+\(\varepsilon_0\boldsymbol{E}=\boldsymbol{D}\),
+\(\boldsymbol{B}=\mu_0\boldsymbol{H}\) and
+\(\mu_0\varepsilon_0=\frac{1}{c^2}\), this leads to:
+\begin{align*}
+\nabla \cdot \boldsymbol{D} &= \rho\\
+\nabla \cdot \boldsymbol{B} &= 0\\
+\nabla \times \boldsymbol{E} &= -\frac{\partial \boldsymbol{B}}{\partial t}\\
+\nabla \times \boldsymbol{H} &=  \frac{\partial \boldsymbol{D}}{\partial t}
++ \boldsymbol{J}.
+\end{align*}
+In the case of dielectric material the constants \(\varepsilon_0\)
+and \(\mu_0\) are replaced by matrices and the relationships read
+\(\varepsilon^{ij}\boldsymbol{E}=\boldsymbol{D}\) and
+\(\boldsymbol{B}=\mu^{ij}\boldsymbol{H}\).
+
+We can see that Maxwell's equations involve two key differential
+operators: the divergence and the curl. Unlike the scalar Helmholtz
+equation, electromagnetic fields are
+vector quantities, and their transformation under coordinate
+changes involves both the divergence and curl operators.
+Understanding how these operators transform is essential for
+deriving the material parameters that achieve cloaking.
+\subsection{Form invariance of Maxwell's equations}
+Something remarkably about Maxwell's equations is that they possess
+a special property called form invariance, meaning they maintain
+their structure under any
+coordinate transformation. This property is the key mathematical
+principle that enables transformation optics to work with the full
+electromagnetic equations.
