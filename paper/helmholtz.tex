@@ -1,22 +1,20 @@
-In the previous section we said that modifying the composition of the medium is
-equivalent to modifying the geometry that light perceives; what does this mean
-mathematically? This section aims to provide two examples of this, using the
-Helmholtz equation. We will see precisely what this statement means
-mathematically. This is the fundamental idea behind cloaking, we will see how a
-change of coordinates can be encoded into the material properties of the
-medium.
+In the previous section, we stated that modifying the composition of the medium
+is equivalent to modifying the geometry that light perceives. What does this
+mean mathematically? This section provides two examples using the Helmholtz
+equation. We will see precisely how this statement translates into mathematics.
+This represents the fundamental idea behind cloaking: a change of coordinates
+can be encoded into the material properties of the medium.
 
 \subsection{Set up}
-We will be working with the Helmholtz equation in \(\mathbb{R}^2\)
+We will work with the Helmholtz equation in \(\mathbb{R}^2\)
 \begin{equation}\label{helmholtz}
 	(\Delta +k^2)f=(\partial_x^2+\partial_y^2+k^2)f=0.
 \end{equation}
-Here we can think of \(k\) as a property of the medium, for example the
-refractive index. Even though it is technically the wave number, for our
-purposes we can think of it as the refractive index. We will see how a
-coordinate transformation can be encoded into this parameter \(k\), or
-equivalently how by tweaking this parameter \(k\) we can induce a geometric
-transformation.
+We can interpret \(k\) as a property of the medium, such as the refractive
+index. Although technically \(k\) represents the wave number, for our purposes
+we can treat it as the refractive index. We will demonstrate how a coordinate
+transformation can be encoded into this parameter \(k\), or equivalently, how
+tweaking this parameter induces a geometric transformation.
 
 \subsection{Example 1: stretching the space}
 Consider the Helmholtz equation \eqref{helmholtz} and apply the following
@@ -40,11 +38,12 @@ Dividing by 9, we obtain
 \begin{equation*}
 	(\partial_u^2+\partial_v^2+(k/3)^2)f=0.
 \end{equation*}
-This result shows that solving the original Helmholtz equation
-\eqref{helmholtz} with \(k\) replaced by \(k/3\) is equivalent to solving the transformed equation. In other words, stretching
-the space by a factor of 3 is equivalent to dividing \(k\) by 3.
-This example demonstrates that modifying the medium's composition and changing the
-geometry that light perceives are equivalent.
+This result shows that solving the transformed equation is equivalent to solving
+the original Helmholtz equation \eqref{helmholtz} with \(k\) replaced by
+\(k/3\). In other words, stretching the space by a factor of 3 is equivalent to
+dividing \(k\) by 3. This example demonstrates that modifying the medium's
+composition and changing the geometry that light perceives produce equivalent
+effects.
 
 \subsection{Example 2: inverting with respect to the unit circle}
 We now apply the coordinate transformation
@@ -114,7 +113,8 @@ Notice the relationships
 	\dd{v}{x}=\dd{u}{y}.
 \end{equation}
 
-Using \eqref{partialsRelations} to eliminate the \(v\) variable from \eqref{laplacianuv}, we obtain
+Using \eqref{partialsRelations} to eliminate the \(v\) variable from
+\eqref{laplacianuv}, we obtain
 \begin{equation}\label{laplacianuvsimplified}
 	\Delta=\left(
 	\left(\dd{u}{x}\right)^2
@@ -142,11 +142,12 @@ Dividing by \(\left(\dd{u}{x}\right)^2
 \end{equation}
 Once again, we achieve the transformation by modifying the
 parameter \(k\). In this example, the required parameter is more
-complex than in the previous case; however, it remains a function of space alone, depending only on \(x\) and \(y\) as
-shown in \eqref{partialu}.
+complex than in the previous case; however, it remains a function of space
+alone, depending only on \(x\) and \(y\) as shown in \eqref{partialu}.
 
 \subsection{A counterexample}
-Not all transformations can be realized by modifying \(k\). For example, consider
+Not all transformations can be realized by modifying \(k\). For example,
+consider
 \begin{equation*}
 	u=2x \qquad
 	v=3y.
