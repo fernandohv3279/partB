@@ -1,10 +1,26 @@
-\subsection{Stretching the space}
-Consider the Helmholtz equation
-\begin{equation}\label{helmholtz}
-	(\Delta +k^2)f=(\partial_x^2+\partial_y^2+k^2)f=0
-\end{equation}
+In the previous section we said that modifying the composition of the medium is
+equivalent to modifying the geometry that light perceives; what does this mean
+mathematically? This section aims to provide two examples of this, using the
+Helmholtz equation. We will see precisely what this statement means
+mathematically. This is the fundamental idea behind cloaking, we will see how a
+change of coordinates can be encoded into the material properties of the
+medium.
 
-Now apply the following change of variables
+\subsection{Set up}
+We will be working with the Helmholtz equation in \(\mathbb{R}^2\)
+\begin{equation}\label{helmholtz}
+	(\Delta +k^2)f=(\partial_x^2+\partial_y^2+k^2)f=0.
+\end{equation}
+Here we can think of \(k\) as a property of the medium, for example the
+refractive index. Even though it is technically the wave number, for our
+purposes we can think of it as the refractive index. We will see how a
+coordinate transformation can be encoded into this parameter \(k\), or
+equivalently how by tweaking this parameter \(k\) we can induce a geometric
+transformation.
+
+\subsection{Example 1: stretching the space}
+Consider the Helmholtz equation \eqref{helmholtz} and apply the following
+change of variables
 \begin{equation*}
 	u=3x \qquad
 	v=3y.
@@ -30,7 +46,7 @@ the space by a factor of 3 is equivalent to dividing \(k\) by 3.
 This example demonstrates that modifying the medium's composition and changing the
 geometry that light perceives are equivalent.
 
-\subsection{Inverting with respect to the unit circle}
+\subsection{Example 2: inverting with respect to the unit circle}
 We now apply the coordinate transformation
 
 \begin{equation*}
