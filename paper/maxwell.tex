@@ -1,23 +1,22 @@
 Maxwell's equations govern the behavior of electromagnetic fields and form the
 foundation of classical electromagnetism. These equations describe how electric
 and magnetic fields interact and propagate through space. In their differential
-form, they are
+form, they read
 \begin{align*}
 \nabla \cdot \boldsymbol{E} &= \frac{\rho}{\varepsilon_0}\\
 \nabla \cdot \boldsymbol{B} &= 0\\
 \nabla \times \boldsymbol{E} &= -\frac{\partial \boldsymbol{B}}{\partial t}\\
 \nabla \times \boldsymbol{B} &=
 \frac{1}{c^2}\cdot\frac{\partial \boldsymbol{E}}{\partial t}
-+ \mu_0 \boldsymbol{J},
++ \mu_0 \boldsymbol{J}.
 \end{align*}
-
-This form is known as the microscopic form of Maxwell's equations.
-Another form that we will use is called the macroscopic form, this
-one is better suited for working with materials parameters, in the
-case of vacuum, which is what we care about in this paper we have
+We refer to this form as the microscopic form of Maxwell's equations.
+Another formulation, called the macroscopic form, better suits our purposes when
+working with material parameters. In vacuum, which is our focus in this paper,
+the constitutive relations are
 \(\varepsilon_0\boldsymbol{E}=\boldsymbol{D}\),
-\(\boldsymbol{B}=\mu_0\boldsymbol{H}\) and
-\(\mu_0\varepsilon_0=\frac{1}{c^2}\), this leads to:
+\(\boldsymbol{B}=\mu_0\boldsymbol{H}\), and
+\(\mu_0\varepsilon_0=\frac{1}{c^2}\). These lead to:
 \begin{align*}
 \nabla \cdot \boldsymbol{D} &= \rho\\
 \nabla \cdot \boldsymbol{B} &= 0\\
@@ -25,67 +24,64 @@ case of vacuum, which is what we care about in this paper we have
 \nabla \times \boldsymbol{H} &=  \frac{\partial \boldsymbol{D}}{\partial t}
 + \boldsymbol{J}.
 \end{align*}
-In the case of dielectric material the constants \(\varepsilon_0\)
-and \(\mu_0\) are replaced by matrices and the relationships read
-\(\varepsilon^{ij}\boldsymbol{E}=\boldsymbol{D}\) and
-\(\boldsymbol{B}=\mu^{ij}\boldsymbol{H}\).
+For dielectric materials, the constants \(\varepsilon_0\)
+and \(\mu_0\) generalize to matrices, and the constitutive relations become
+\(\varepsilon^{ij}E_j=D_i\) and \(B_i=\mu^{ij}H_j\) (Einstein notation).
 
-We can see that Maxwell's equations involve two key differential
+Maxwell's equations involve two key differential
 operators: the divergence and the curl. Unlike the scalar Helmholtz
 equation, electromagnetic fields are
 vector quantities, and their transformation under coordinate
-changes involves both the divergence and curl operators.
+changes involves both operators.
 Understanding how these operators transform is essential for
 deriving the material parameters that achieve cloaking.
 
 \subsection{Form invariance of Maxwell's equations}
 
-Something remarkably about Maxwell's equations is that they possess
-a special property called form invariance, meaning they maintain
-their structure under any coordinate transformation. This property
-is so fundamental that according to
-\cite{mccallRoadmapTransformationOptics2018} this is one of the
-guiding principles Einstein used to develop his theory of general
-relativity, it is also the key mathematical principle that enables
-transformation optics to work with the full electromagnetic
-equations.
+Maxwell's equations possess a remarkable property called form invariance: they
+maintain their structure under any coordinate transformation. This property is
+so fundamental that, according to \cite{mccallRoadmapTransformationOptics2018},
+it served as one of the guiding principles Einstein used to develop general
+relativity. This property also provides the key mathematical principle that
+enables transformation optics to work with the full electromagnetic equations.
 
 \subsection{The transformation}
 
-The next step is to come up with a coordinate transformation that
-creates a region of space where we can hide stuff, this region of
-space needs to be decoupled from the original space; what does this
-mean for the transformation? It basically means that the transformation maps
-a point, a line or a small circle into a large circle, which is our
-cloaking region, this one will be perceived as very small despite being large.
-In this paper the transformation that we will use is described in
-terms of cylindrical coordinates as follows:
-\[
+We now construct a coordinate transformation that
+creates a region of space where we can conceal objects. This region
+must be decoupled from the original space. What does this
+mean for the transformation? The transformation must map
+a point, a line, or a small area into a larger area, which becomes our
+cloaking region. Light will perceive this region as very small despite its
+actual size. There are multiple choices for such transformation, in this paper,
+we will use \eqref{transformation}, which is given in cylindrical coordinates
+as follows:
+
+For \(r'\leq b\)
+\begin{equation}\label{transformation}
 \begin{cases}
-	r= \frac{b-a}{b} r' + a\quad r'\leq b\\
+	r= \frac{b-a}{b} r' + a\\
 	\theta = \theta'\\
 	z=z'
-\end{cases},
-\]
-for \(r'\geq b\) the transformation is the identity.
+\end{cases}.
+\end{equation}
 
-The primed coordinates describe what is known as the virtual space
-which can be thought of as the space that light perceives. The
-unprimed coordinates describe the physical space; i.e. the actual
-space. Notice that \(0\leq r'\leq b\) gets mapped to \(a\leq r\leq
-b\), so nothing is mapped to \(0\leq r \leq a\), this is the space
-that will be cloaked, since from the perspective of light it
-doesn't exist; or rather, it is perceived as a single point (the
-origin).
+For \(r'\geq b\) the transformation is the identity. The primed coordinates
+describe the virtual space, which represents the space that light perceives.
+The unprimed coordinates describe the physical space---the actual space. Notice
+that \(0\leq r'\leq b\) maps to \(a\leq r\leq b\), so the transformation maps
+nothing to \(0\leq r \leq a\). This region will be cloaked, since from the
+perspective of light it does not exist; or rather, light perceives it as a
+single point (the origin).
 
 \subsection{Encoding the transformation into the material parameters}
 
-At this point we could in principle follow the procedure outlined in section
-\ref{helmholtzexample}, using the chain rule to re-write the operators in the
-equations and from there get the material parameters; however, this will lead
-to complicated and long expressions that can be hard to deal with. The
-transformation optics approach is to come up with a formula that allows us to
-do this in the most general sense, then we can plug in the specific
-transformation we want and obtain the parameters from the formula. This
-approach requires more sophisticated theory and knowledge about differential
-geometry but it is more elegant and simplifies computations a lot.
+At this point, we could in principle follow the procedure outlined in Section
+\ref{helmholtzexample}, using the chain rule to rewrite the operators in the
+equations and derive the material parameters. However, this approach leads
+to complicated and lengthy expressions that can be difficult to handle. The
+transformation optics approach instead develops a general formula that
+allows us to compute the material parameters for any transformation. We can
+then substitute the specific transformation we want and obtain the parameters
+directly from the formula. This approach requires more sophisticated tools from
+differential geometry, but it simplifies computations and it is more elegant.
