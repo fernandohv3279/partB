@@ -1,0 +1,75 @@
+In this section we introduce the basic tools that we need to derive formula
+\eqref{formula}. Almost all the material from this section was taken from
+section 3 of \cite{leonhardtGeometryLightScience2010}.
+
+Let us remember that the main idea of cloaking is to observe the form that a
+differential operator takes under a particular coordinate system and then
+rewrite the equation, taking it back to it's original form. This is where
+differential geometry becomes very useful, since it provides a way to write the
+operators divergence and curl in arbitrary coordinates. This is what we will do
+in the next sections.
+
+\subsection{Divergence and curl}
+
+In Cartesian coordinates and using Einstein notation the divergence operator is
+described with the formula
+\begin{equation*}
+\nabla\cdot \boldsymbol{V} = \partial_i V^i.
+\end{equation*}
+
+We can write this in a coordinate free way. For a general coordinate system
+with metric tensor \(g\), the divergence operator takes the form
+\begin{equation}\label{divergence}
+	\nabla\cdot \boldsymbol{V} = \frac{1}{\sqrt{g}}\partial_i
+	\left(\sqrt{g} V^i\right).
+\end{equation}
+
+Similarly for the curl we have the expression:
+\begin{equation}\label{curl}
+\left(\nabla\times \boldsymbol{V}\right)^i =\epsilon^{ijk}\partial_jV_k,
+\end{equation}
+where \(\epsilon^{ijk}=\pm\frac{1}{\sqrt{g}}[ijk]\) is the Levi-Civita tensor.
+
+Even though \eqref{divergence} and \eqref{curl} are very compact and simple
+expressions, we have to be careful to interpret them correctly. The first
+observation is that these formulas are in terms of a basis that has not been
+normalized. Secondly, we must pay attention to the position of the indices,
+these formulas make a distinction between contravariant (regular) vectors and
+covariant vectors, next subsection will explain a bit more about this.
+
+\subsection{Rising/Lowering indices}
+
+In order to properly use the new formulas we need to learn how to lower or rise
+indices, since the formulas require us to use (contravariant) vectors when we
+have upper indices and covariant vectors when we have lower indices. The way we
+do this is by means of the metric tensor (upper indices) and its inverse (lower
+indices), as follows:
+\begin{align*}
+	V_i&=g_{ij}V^j\\
+	g^{ki}V_i&=V^k.
+\end{align*}
+
+In the first equation we lower an index by multiplying by the inverse of the
+metric tensor (namely \(g_{ij}\)) and in the second equation we rise an index
+by multiplying by the metric tensor (namely \(g^{ki}\)).
+
+Strictly speaking, vectors and covectors are different mathematical objects
+that live in different spaces but for our purposes we can treat them as just
+matrices and vectors. The above rules are all we need to apply the formulas.
+
+\subsection{Relationships between metric tensors}
+The last tool we need from differential geometry is an equation that relates
+the metric tensors of two different coordinate systems.
+
+If we have \{\(x^i\)\} and \{\(x^{i'}\)\} two different coordinate systems then
+we define
+\[
+	\Lambda=\Lambda^i_{i'}=\left[\frac{\partial x^i}{\partial
+	x^{i'}}\right],
+\]
+and the relationship between the tensors associated to each of the coordinate
+systems is given by
+\begin{equation}
+	\boldsymbol{g'}=\Lambda^T \boldsymbol{g} \Lambda.
+\end{equation}
+This equation will be used in the next section.
