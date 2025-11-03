@@ -37,10 +37,55 @@ vector quantities, and their transformation under coordinate
 changes involves both the divergence and curl operators.
 Understanding how these operators transform is essential for
 deriving the material parameters that achieve cloaking.
+
 \subsection{Form invariance of Maxwell's equations}
+
 Something remarkably about Maxwell's equations is that they possess
 a special property called form invariance, meaning they maintain
-their structure under any
-coordinate transformation. This property is the key mathematical
-principle that enables transformation optics to work with the full
-electromagnetic equations.
+their structure under any coordinate transformation. This property
+is so fundamental that according to
+\cite{mccallRoadmapTransformationOptics2018} this is one of the
+guiding principles Einstein used to develop his theory of general
+relativity, it is also the key mathematical principle that enables
+transformation optics to work with the full electromagnetic
+equations.
+
+\subsection{The transformation}
+
+The next step is to come up with a coordinate transformation that
+creates a region of space where we can hide stuff, this region of
+space needs to be decoupled from the original space; what does this
+mean for the transformation? It basically means that the transformation maps
+a point, a line or a small circle into a large circle, which is our
+cloaking region, this one will be perceived as very small despite being large.
+In this paper the transformation that we will use is described in
+terms of cylindrical coordinates as follows:
+\[
+\begin{cases}
+	r= \frac{b-a}{b} r' + a\quad r'\leq b\\
+	\theta = \theta'\\
+	z=z'
+\end{cases},
+\]
+for \(r'\geq b\) the transformation is the identity.
+
+The primed coordinates describe what is known as the virtual space
+which can be thought of as the space that light perceives. The
+unprimed coordinates describe the physical space; i.e. the actual
+space. Notice that \(0\leq r'\leq b\) gets mapped to \(a\leq r\leq
+b\), so nothing is mapped to \(0\leq r \leq a\), this is the space
+that will be cloaked, since from the perspective of light it
+doesn't exist; or rather, it is perceived as a single point (the
+origin).
+
+\subsection{Encoding the transformation into the material parameters}
+
+At this point we could in principle follow the procedure outlined in section
+\ref{helmholtzexample}, using the chain rule to re-write the operators in the
+equations and from there get the material parameters; however, this will lead
+to complicated and long expressions that can be hard to deal with. The
+transformation optics approach is to come up with a formula that allows us to
+do this in the most general sense, then we can plug in the specific
+transformation we want and obtain the parameters from the formula. This
+approach requires more sophisticated theory and knowledge about differential
+geometry but it is more elegant and simplifies computations a lot.
