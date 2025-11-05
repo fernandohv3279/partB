@@ -91,14 +91,14 @@ transformation \(\Lambda\) and \(\boldsymbol{g}'\), which represents the metric 
 of the coordinate system we started with---in our particular case, cylindrical coordinates.
 
 \subsection{Using the formula}
-We are now ready to use the formula, in our case we have
-\[\Lambda=\text{diag}\left( \frac{b-a}{b} ,1,1\right)\]
-as our Jacobian matrix.
-Our physical and virtual space are described in cylindrical
-coordinates so we have
+We are now ready to apply the formula. In our case, the Jacobian matrix is
+\[\Lambda=\text{diag}\left( \frac{b-a}{b} ,1,1\right).\]
+Our physical and virtual spaces are both described in cylindrical
+coordinates, so we have
 \[\boldsymbol{g}'=\text{diag}(1,r'^2,1)\]
-\[\boldsymbol{\gamma}=\text{diag}\left(1,r^2,1\right)\]
-and then
+and
+\[\boldsymbol{\gamma}=\text{diag}\left(1,r^2,1\right),\]
+which yields
 \[
 \varepsilon^{ij}=\text{diag}
 \left(
@@ -107,16 +107,15 @@ and then
 \frac{r'b}{r(b-a)}
 \right).
 \]
-The last step we have to do in mainly for convenience.
-In short, the eigenvalues of the matrix \(\varepsilon^{ij}\) depend on the
-coordinate system, so it is convenient to express them in terms of
-Cartesian coordinates. Using some tools from linear algebra, whic
-will not be explained here (the full explanation can be found in
-section 5 of \cite{leonhardtGeometryLightScience2010}) it is
-possible to prove that by lowering an index with the metric tensor
-we obtain a matrix whose eigenvalues (when computed in an arbitrary
-coordinate system) ate the eigenvalues of our tensor in Cartesian coordinates.
-Doing this last step we obtain
+The final step, performed mainly for convenience, expresses the parameters in terms more directly comparable to physical measurements.
+The eigenvalues of the matrix \(\varepsilon^{ij}\) depend on the
+coordinate system, so we prefer to express them in terms of
+Cartesian coordinates. Using tools from linear algebra
+not explained here (the full explanation appears in
+Section 5 of \cite{leonhardtGeometryLightScience2010}), we can show that lowering an index with the metric tensor
+yields a matrix whose eigenvalues (when computed in an arbitrary
+coordinate system) are the eigenvalues of our tensor in Cartesian coordinates.
+Applying this step, we obtain
 \begin{align*}
 \varepsilon^i_j&=\varepsilon^{ik}\gamma_{kj}\\
 &=\text{diag}
@@ -124,15 +123,15 @@ Doing this last step we obtain
 \frac{b-a}{b}\frac{r'}{r},
 \frac{br}{r'(b-a)},
 \frac{r'b}{r(b-a)}
-\right),
+\right).
 \end{align*}
-then write \(r'=(r-a)\frac{b}{b-a}\) to get
+We then substitute \(r'=(r-a)\frac{b}{b-a}\) to obtain
 \[
 \varepsilon^i_j =\text{diag}
 \left(
 \frac{r-a}{r},
 \frac{r}{r-a},
 \left(\frac{b}{b-a}\right)^2\frac{r-a}{r}
-\right).
+\right),
 \]
-Which is the formula presented at the beginning.
+which is the formula presented at the beginning.
