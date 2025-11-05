@@ -1,93 +1,98 @@
 \subsection{Deriving the formula for \(\varepsilon^{ij}\) and \(\mu^{ij}\)}
-Using the tools from the previous section we can write Maxwell's equations in a
-coordinate free way.
-Then
+Using the tools from the previous section, we can express Maxwell's equations in a
+coordinate-free manner.
+Maxwell's equations
 \begin{align*}
 \nabla \cdot \boldsymbol{E} &= \frac{\rho}{\varepsilon_0}\\
 \nabla \cdot \boldsymbol{H} &= 0\\
 \nabla\times \boldsymbol{E} &=-\mu_0\frac{\partial \boldsymbol{H}}{\partial t}\\
 \nabla\times \boldsymbol{H} &=\varepsilon_0\frac{\partial \boldsymbol{E}}{\partial t} + \boldsymbol{J}
 \end{align*}
-becomes
+become
 \begin{align}
 \begin{split}\label{maxwellGeneral}
 \frac{1}{\sqrt{g}}\partial_i\left(\sqrt{g}E^i\right) &= \frac{\rho}{\varepsilon_0}\\
 \frac{1}{\sqrt{g}}\partial_i\left(\sqrt{g}H^i\right) &=0 \\
 \epsilon^{ijk} \partial_jE_k &= -\mu_0\frac{\partial H^i}{\partial t}\\
-\epsilon^{ijk} \partial_jH_k &= \varepsilon_0\frac{\partial E^i}{\partial t} + J^i,
+\epsilon^{ijk} \partial_jH_k &= \varepsilon_0\frac{\partial E^i}{\partial t} + J^i.
 \end{split}
 \end{align}
-lowering the indices on \(H^i,E^i\) and writing the Levi-Civita tensor explicitly as
-\(\epsilon^{ijk}=\pm\frac{1}{\sqrt{g}}[ijk]\) we get
+Lowering the indices on \(H^i\) and \(E^i\), and writing the Levi-Civita tensor explicitly as
+\(\epsilon^{ijk}=\pm\frac{1}{\sqrt{g}}[ijk]\), we obtain
 \begin{align*}
 \partial_i\left(\sqrt{g}g^{ij}E_j\right) &= \frac{\sqrt{g}\rho}{\varepsilon_0}\\
 \partial_i\left(\sqrt{g}g^{ij}H_j\right) &=0\\
 [ijk]\partial_jE_k &= -\mu_0\frac{\partial\left(\pm \sqrt{g}g^{ij}H_j\right)}{\partial t}\\
 [ijk]\partial_jH_k &= \varepsilon_0\frac{\partial \left(\pm \sqrt{g}g^{ij}E_j\right)}{\partial t} \pm \sqrt{g}J^i.
 \end{align*}
-If we take the constitutive equations 
+If we adopt the constitutive relations 
 \begin{align}
 D^i&=\varepsilon_0\varepsilon^{ij}E_j \nonumber\\
 B^i&=\mu_0\mu^{ij}H_j \nonumber\\
 \varepsilon^{ij}&=\mu^{ij}=\pm\sqrt{g}g^{ij}\label{cartesiantensors}
 \end{align}
-and define \(\varrho=\sqrt{g}\rho\), \(\mathcal{J}^i=\pm\sqrt{g}J^i\), we
-obtain Maxwell's equation in the macroscopic form!
+and define \(\varrho=\sqrt{g}\rho\) and \(\mathcal{J}^i=\pm\sqrt{g}J^i\), we
+recover Maxwell's equations in macroscopic form:
 \begin{align*}
 \partial_i D^i&=\varrho\\
 \partial_i B^i&=0\\
 [ijk]\partial_jE_k&=-\frac{\partial B^i}{\partial t}\\
 [ijk]\partial_jH_k&=\frac{\partial D^i}{\partial t}+\mathcal{J}^i.
 \end{align*}
-It is worth taking a moment to summarize what we are doing here. We start with
-Maxwell's equations in Cartesian, then rewrite them in arbitrary coordinates
-and then we interpret them in the original Cartesian system. Then equation
-\eqref{cartesiantensors} gives us the parameters that would induce the
-transformation. The limitation with this is that then we need our
-transformation to be described in Cartesian coordinates. So we can't apply
+It is worth pausing to summarize our approach. We start with
+Maxwell's equations in Cartesian coordinates, rewrite them in arbitrary coordinates,
+and then reinterpret them in the original Cartesian system. Equation
+\eqref{cartesiantensors} then provides the material parameters that induce the
+desired transformation. The limitation of this approach is that the
+transformation must be described in Cartesian coordinates. We cannot directly apply
 formula \eqref{cartesiantensors} to transformation \eqref{transformation}
-because it is given in cylindrical. In order to have more flexibility we start
-with an arbitrary coordinate system, move to a different arbitrary coordinate
-system and reinterpret the equations in the original coordinates. So what we do
-is take \eqref{maxwellGeneral} and reinterpret it in the coordinate system
-\begin{align*}
+because it is expressed in cylindrical coordinates. To gain more flexibility, we start
+with an arbitrary coordinate system, transform to a different arbitrary coordinate
+system, and reinterpret the equations in the original coordinates. This is:
+we start with general coordinate system with metric \(\gamma\):
+\begin{align}\label{maxwellgamma}
+\begin{split}
 \frac{1}{\sqrt{\gamma}}\partial_i\left(\sqrt{\gamma}E^i\right) &= \frac{\rho}{\varepsilon_0}\\
 \frac{1}{\sqrt{\gamma}}\partial_i\left(\sqrt{\gamma}H^i\right) &=0\\
 [ijk] \partial_jE_k &= -\mu_0\frac{\partial \left(\sqrt{\gamma} H^i\right)}{\partial t}\\
 [ijk] \partial_jH_k &= \varepsilon_0\frac{\partial \left(\sqrt{\gamma} E^i\right)}{\partial t} + \sqrt{\gamma}J^i,
-\end{align*}
-which yields the constitutive equations:
+\end{split}
+\end{align}
+then we go to a different general coordinate system, this is
+\eqref{maxwellGeneral}, then we interpret \eqref{maxwellGeneral} in
+the coordinates of \eqref{maxwellgamma},
+which yields the constitutive relations:
 \begin{align}
 	D^i&=\varepsilon_0\varepsilon^{ij}E_j\nonumber\\
 	B^i&=\mu_0\mu^{ij}H_j\nonumber\\
 	\varepsilon^{ij}&=\mu^{ij}=\pm\frac{\sqrt{g}}{\sqrt{\gamma}}g^{ij}\label{tensorformulawithg}.
 \end{align}
-Equation \eqref{tensorformulawithg} gives a recipe to compute the material
-parameters starting in an arbitrary coordinate system and with an arbitrary
-coordinate transformation; however, the inverse metric tensor that appears in
-the formula makes it, impractical, since it is not immediately obvious what
-this is. This tensor describes the geometry that light perceives, but we would
-like to instead have a formula that uses the coordinate transformation and our
-original metric tensor, i.e. the metric of the space we started with. For this
-we use the relationship between the tensors that we saw in the previous
-section; namely, equation \eqref{tensorrelations}
+Equation \eqref{tensorformulawithg} provides a recipe for computing the material
+parameters starting from an arbitrary coordinate system with an arbitrary
+coordinate transformation. However, the inverse metric tensor that appears in
+the formula makes it impractical, since this tensor is not immediately available
+from the transformation. This tensor describes the geometry that light perceives, but we would
+prefer a formula that uses the coordinate transformation and our
+original metric tensor---that is, the metric of the space we started with. For this,
+we apply the relationship between metric tensors from the previous
+section, namely equation \eqref{tensorrelations}:
 \begin{equation*}
 	\boldsymbol{g'}=\Lambda^T \boldsymbol{g} \Lambda.
 \end{equation*}
-Taking determinant on both sides we get
+Taking the determinant of both sides yields
 \[g'=g\left(\det\Lambda\right)^2.\]
-Taking inverse on both sides we get
+Taking the inverse of both sides gives
 \[
 \boldsymbol{g}^{-1}=\Lambda(\boldsymbol{g}')^{-1}\Lambda^T.
 \]
-Then
+Thus
 \begin{align*}
 	\mu^{ij}=\varepsilon^{ij}&=\pm\frac{1}{\sqrt{\gamma}}\sqrt{g}g^{ij}\\
 		&=\pm\frac{1}{\sqrt{\gamma}}\frac{\sqrt{g'}}{|\det\Lambda|}\Lambda(\boldsymbol{g}')^{-1}\Lambda^T\\
 		&=\frac{\sqrt{g'}}{\sqrt{\gamma}}\frac{\Lambda(\boldsymbol{g}')^{-1}\Lambda^T}{\det\Lambda}.
 \end{align*}
-Now this formula is better because it is in terms of the coordinate
-transformation \(\Lambda\) and \(\boldsymbol{g}'\) which is the metric tensor
-of the coordinate system we started with; in our particular case, cylindrical.
+This formula is more practical because it depends on the coordinate
+transformation \(\Lambda\) and \(\boldsymbol{g}'\), which represents the metric tensor
+of the coordinate system we started with---in our particular case, cylindrical coordinates.
 
 \subsection{Using the formula}
