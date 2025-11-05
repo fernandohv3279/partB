@@ -48,20 +48,15 @@ transformation must be described in Cartesian coordinates. We cannot directly ap
 formula \eqref{cartesiantensors} to transformation \eqref{transformation}
 because it is expressed in cylindrical coordinates. To gain more flexibility, we start
 with an arbitrary coordinate system, transform to a different arbitrary coordinate
-system, and reinterpret the equations in the original coordinates. This is:
-we start with general coordinate system with metric \(\gamma\):
-\begin{align}\label{maxwellgamma}
-\begin{split}
+system, and reinterpret the equations in the original coordinates. Specifically, we start with equation \eqref{maxwellGeneral} (written with metric \(g\)), make the substitution \(g\to\gamma\) where \(\gamma\) represents the metric tensor of the coordinate system we started with (the physical space), and then take \(g\) to be the metric tensor of the transformed coordinates (the virtual space). The metric tensor describes the geometry of the space, and making this substitution allows us to start with an arbitrary coordinate system, apply an arbitrary transformation, and then reinterpret the equations in the original coordinates. This yields:
+\begin{align*}
 \frac{1}{\sqrt{\gamma}}\partial_i\left(\sqrt{\gamma}E^i\right) &= \frac{\rho}{\varepsilon_0}\\
 \frac{1}{\sqrt{\gamma}}\partial_i\left(\sqrt{\gamma}H^i\right) &=0\\
 [ijk] \partial_jE_k &= -\mu_0\frac{\partial \left(\sqrt{\gamma} H^i\right)}{\partial t}\\
 [ijk] \partial_jH_k &= \varepsilon_0\frac{\partial \left(\sqrt{\gamma} E^i\right)}{\partial t} + \sqrt{\gamma}J^i,
-\end{split}
-\end{align}
-then we go to a different general coordinate system, this is
-\eqref{maxwellGeneral}, then we interpret \eqref{maxwellGeneral} in
-the coordinates of \eqref{maxwellgamma},
-which yields the constitutive relations:
+\end{align*}
+for the physical space. After the process described above
+we obtain the constitutive relations:
 \begin{align}
 	D^i&=\varepsilon_0\varepsilon^{ij}E_j\nonumber\\
 	B^i&=\mu_0\mu^{ij}H_j\nonumber\\
@@ -96,3 +91,48 @@ transformation \(\Lambda\) and \(\boldsymbol{g}'\), which represents the metric 
 of the coordinate system we started with---in our particular case, cylindrical coordinates.
 
 \subsection{Using the formula}
+We are now ready to use the formula, in our case we have
+\[\Lambda=\text{diag}\left( \frac{b-a}{b} ,1,1\right)\]
+as our Jacobian matrix.
+Our physical and virtual space are described in cylindrical
+coordinates so we have
+\[\boldsymbol{g}'=\text{diag}(1,r'^2,1)\]
+\[\boldsymbol{\gamma}=\text{diag}\left(1,r^2,1\right)\]
+and then
+\[
+\varepsilon^{ij}=\text{diag}
+\left(
+\frac{b-a}{b}\frac{r'}{r},
+\frac{b}{rr'(b-a)},
+\frac{r'b}{r(b-a)}
+\right).
+\]
+The last step we have to do in mainly for convenience.
+In short, the eigenvalues of the matrix \(\varepsilon^{ij}\) depend on the
+coordinate system, so it is convenient to express them in terms of
+Cartesian coordinates. Using some tools from linear algebra, whic
+will not be explained here (the full explanation can be found in
+section 5 of \cite{leonhardtGeometryLightScience2010}) it is
+possible to prove that by lowering an index with the metric tensor
+we obtain a matrix whose eigenvalues (when computed in an arbitrary
+coordinate system) ate the eigenvalues of our tensor in Cartesian coordinates.
+Doing this last step we obtain
+\begin{align*}
+\varepsilon^i_j&=\varepsilon^{ik}\gamma_{kj}\\
+&=\text{diag}
+\left(
+\frac{b-a}{b}\frac{r'}{r},
+\frac{br}{r'(b-a)},
+\frac{r'b}{r(b-a)}
+\right),
+\end{align*}
+then write \(r'=(r-a)\frac{b}{b-a}\) to get
+\[
+\varepsilon^i_j =\text{diag}
+\left(
+\frac{r-a}{r},
+\frac{r}{r-a},
+\left(\frac{b}{b-a}\right)^2\frac{r-a}{r}
+\right).
+\]
+Which is the formula presented at the beginning.
